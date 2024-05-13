@@ -12,6 +12,7 @@ public class DungeonGenerator : MonoBehaviour
     public GameObject wallParent;
 
     public GameObject Player;
+    public GameObject Enemy;
 
     public bool isRoofNeeded = true;
 
@@ -41,6 +42,9 @@ public class DungeonGenerator : MonoBehaviour
                 {
                     Player.transform.SetPositionAndRotation(new Vector3(x, 1, z), Quaternion.identity);
                     isPlayerPlaced = true; 
+
+                    Vector3 enemyPosition = new Vector3(Random.Range(0, mazeSize), 1, Random.Range(0, mazeSize));
+                    Instantiate(Enemy, enemyPosition, Quaternion.identity);
                 }
 
                 CreateChildPrefabInstance(floorPrefab, floorParent, new Vector3(x, 0, z));
