@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/IntroScene.unity
+    guid: 6e8a10060fba2c046b7ca9bd1ea635dd
+  - enabled: 1
+    path: Assets/Scenes/escena2_alvaro.unity
+    guid: adc59947ff5e1514cb5f1cc81a9e9948
   m_configObjects: {}
