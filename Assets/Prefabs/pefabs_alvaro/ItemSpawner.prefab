@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemsToPickFrom:
-  - {fileID: 7374177188096371545, guid: baac9ae596bd78642ae7a4fea4a6719d, type: 3}
-  - {fileID: 6034520201276362563, guid: f0d79b4cc19cb64469a2f57cf6aaa750, type: 3}
+  - {fileID: 8099267221728765704, guid: f8e33014c5a374a4594915c1f77a28e7, type: 3}
+  - {fileID: 8099267221728765704, guid: f8e33014c5a374a4594915c1f77a28e7, type: 3}

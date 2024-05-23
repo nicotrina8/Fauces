@@ -138,6 +138,7 @@ GameObject:
   m_Component:
   - component: {fileID: 503901128}
   - component: {fileID: 503901127}
+  - component: {fileID: 503901129}
   m_Layer: 0
   m_Name: DungeonGenerator
   m_TagString: Untagged
@@ -181,6 +182,20 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &503901129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503901126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0586975f118dec54ea6b94f8c4b7fa1e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  torchPrefab: {fileID: 8769296069682026504, guid: bb71ad9b54ad91b4882beb8d32352478, type: 3}
+  wallParent: {fileID: 801017783}
 --- !u!1001 &755585541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -612,7 +627,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -4205807500022284708, guid: a0af2b6599222e743b4f234291a6ac34, type: 3}
+    - {fileID: 9140616559690627129, guid: a0af2b6599222e743b4f234291a6ac34, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -639,7 +656,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7714571009747396504, guid: 0eeb67a9208f9a64fad23577339b57e1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.53
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7714571009747396504, guid: 0eeb67a9208f9a64fad23577339b57e1, type: 3}
       propertyPath: m_LocalPosition.z

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class DungeonGenerator : MonoBehaviour
@@ -45,6 +46,7 @@ public class DungeonGenerator : MonoBehaviour
 
                     Vector3 enemyPosition = new Vector3(Random.Range(0, mazeSize), 1, Random.Range(0, mazeSize));
                     Instantiate(Enemy, enemyPosition, Quaternion.identity);
+
                 }
 
                 CreateChildPrefabInstance(floorPrefab, floorParent, new Vector3(x, 0, z));
@@ -55,6 +57,14 @@ public class DungeonGenerator : MonoBehaviour
                 }
             }
         }
+
+        //Llamar al método para colocar antorchas DESPUÉS de generar la mazmorra
+        TorchPlacer torchPlacer = GetComponent<TorchPlacer>();
+        if (torchPlacer != null)
+        {
+            torchPlacer.PlaceTorches(mapData, mazeSize);
+        }
+
     }
 
     bool[,] GenerateMazeData ()
