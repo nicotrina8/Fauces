@@ -403,6 +403,7 @@ GameObject:
   - component: {fileID: 277403751}
   - component: {fileID: 277403750}
   - component: {fileID: 277403749}
+  - component: {fileID: 277403752}
   m_Layer: 5
   m_Name: Boton jugar
   m_TagString: Untagged
@@ -524,6 +525,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 277403747}
   m_CullTransparentMesh: 1
+--- !u!114 &277403752
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 277403747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7572868a5f8ee384a8ab5140d7ba4249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 41ae03812b6b6aa44b142f8ecd8def61, type: 3}
 --- !u!1 &520171046
 GameObject:
   m_ObjectHideFlags: 0
@@ -804,6 +818,7 @@ GameObject:
   - component: {fileID: 707736950}
   - component: {fileID: 707736949}
   - component: {fileID: 707736948}
+  - component: {fileID: 707736951}
   m_Layer: 5
   m_Name: Boton salir
   m_TagString: Untagged
@@ -925,6 +940,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 707736946}
   m_CullTransparentMesh: 1
+--- !u!114 &707736951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 707736946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7572868a5f8ee384a8ab5140d7ba4249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 41ae03812b6b6aa44b142f8ecd8def61, type: 3}
 --- !u!1 &764014912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1010,7 +1038,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &952500574
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1612,6 +1640,7 @@ GameObject:
   - component: {fileID: 1569426576}
   - component: {fileID: 1569426575}
   - component: {fileID: 1569426574}
+  - component: {fileID: 1569426577}
   m_Layer: 5
   m_Name: Boton opciones
   m_TagString: Untagged
@@ -1745,6 +1774,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1569426572}
   m_CullTransparentMesh: 1
+--- !u!114 &1569426577
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1569426572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7572868a5f8ee384a8ab5140d7ba4249, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  clip: {fileID: 8300000, guid: 41ae03812b6b6aa44b142f8ecd8def61, type: 3}
 --- !u!1 &1633952154
 GameObject:
   m_ObjectHideFlags: 0
