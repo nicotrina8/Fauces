@@ -9,6 +9,9 @@ public class ImageToggle : Interactable
     private RectTransform imageUI; // La imagen que se va a mostrar en el centro de la pantalla
     [SerializeField]
     private float scale = 1.0f; // Factor de escala de la imagen
+    [SerializeField]
+    private AudioClip toggleImageSound; // Agregamos una variable para el clip de audio
+    private AudioSource audioSource; // Variable para el componente AudioSource
 
     private bool imageVisible;
     private Vector2 originalImageSize;
@@ -18,6 +21,10 @@ public class ImageToggle : Interactable
     {
         imageVisible = false;
         imageUI.gameObject.SetActive(imageVisible);
+
+        // Obtener o añadir el componente AudioSource al GameObject del ImageToggle
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = toggleImageSound;
 
         // Guardar el tamaño original de la imagen
         Image imageComponent = imageUI.GetComponent<Image>();
@@ -53,6 +60,12 @@ public class ImageToggle : Interactable
 
         if (imageVisible)
         {
+            // Reproducir el sonido solo al mostrar la imagen
+            if (audioSource != null && toggleImageSound != null)
+            {
+                audioSource.Play();
+            }
+
             // Guardar el timeScale actual y congelar el tiempo
             previousTimeScale = Time.timeScale;
             Time.timeScale = 0f;
