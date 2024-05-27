@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Unity.AI.Navigation;
+using Unity.AI.Navigation; // Importar el namespace para NavMesh
 using UnityEngine;
 
 public class DungeonGenerator : MonoBehaviour
@@ -9,11 +9,10 @@ public class DungeonGenerator : MonoBehaviour
     public GameObject wallPrefab;
     public GameObject ceilingPrefab;
 
-    public GameObject floorParent; //ahora estamos creando referencias para los padres de los objetos
+    public GameObject floorParent; 
     public GameObject wallParent;
 
     public GameObject Player;
-    public GameObject Enemy;
 
     public bool isRoofNeeded = true;
 
@@ -23,7 +22,7 @@ public class DungeonGenerator : MonoBehaviour
 
     private bool isPlayerPlaced = false;
 
-    private bool[,] mapData; //mapa de datos
+    private bool[,] mapData; 
 
     private void Start()
     {
@@ -31,7 +30,7 @@ public class DungeonGenerator : MonoBehaviour
 
         for (int z = 0; z < mazeSize; z++)
         {
-            for(int x = 0; x < mazeSize; x++)
+            for (int x = 0; x < mazeSize; x++)
             {
                 if (mapData[z, x])
                 {
@@ -39,14 +38,10 @@ public class DungeonGenerator : MonoBehaviour
                     CreateChildPrefabInstance(wallPrefab, wallParent, new Vector3(x, 2, z));
                     CreateChildPrefabInstance(wallPrefab, wallParent, new Vector3(x, 3, z));
                 }
-                else if(!isPlayerPlaced)
+                else if (!isPlayerPlaced)
                 {
                     Player.transform.SetPositionAndRotation(new Vector3(x, 1, z), Quaternion.identity);
-                    isPlayerPlaced = true; 
-
-                    Vector3 enemyPosition = new Vector3(Random.Range(0, mazeSize), 1, Random.Range(0, mazeSize));
-                    Instantiate(Enemy, enemyPosition, Quaternion.identity);
-
+                    isPlayerPlaced = true;
                 }
 
                 CreateChildPrefabInstance(floorPrefab, floorParent, new Vector3(x, 0, z));
@@ -58,20 +53,19 @@ public class DungeonGenerator : MonoBehaviour
             }
         }
 
-        //Llamar al método para colocar antorchas DESPUÉS de generar la mazmorra
+        // Llamar al mÃ©todo para colocar antorchas DESPUÃ‰S de generar la mazmorra
         TorchPlacer torchPlacer = GetComponent<TorchPlacer>();
         if (torchPlacer != null)
         {
             torchPlacer.PlaceTorches(mapData, mazeSize);
         }
-
     }
 
-    bool[,] GenerateMazeData ()
+    bool[,] GenerateMazeData()
     {
         bool[,] data = new bool[mazeSize, mazeSize];
 
-        //We will initialize all the walls to true
+        // Inicializamos todas las paredes a true
         for (int y = 0; y < mazeSize; y++)
         {
             for (int x = 0; x < mazeSize; x++)
@@ -80,11 +74,11 @@ public class DungeonGenerator : MonoBehaviour
             }
         }
 
-        // Clear out the walls somewhere in the quantity of tilesToRemove
+        // Limpiar las paredes en la cantidad de tilesToRemove
         int tilesConsumed = 0;
         int mazeX = 0, mazeY = 0;
 
-        //Iterate with our random crawler and clear out the walls needed
+        // Iterar con nuestro crawler aleatorio y limpiar las paredes necesarias
         while (tilesConsumed < tilesToRemove)
         {
             int xDirection = 0, yDirection = 0;

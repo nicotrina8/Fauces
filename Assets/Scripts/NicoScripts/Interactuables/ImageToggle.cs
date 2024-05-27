@@ -1,20 +1,34 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ImageToggle : Interactable
 {
     [SerializeField]
     private RectTransform imageUI; // La imagen que se va a mostrar en el centro de la pantalla
     [SerializeField]
-    private Vector2 imageSize = new Vector2(200, 200); // Tamaño de la imagen
+    private float scale = 1.0f; // Factor de escala de la imagen
 
     private bool imageVisible;
+    private Vector2 originalImageSize;
+    private float previousTimeScale;
 
     void Start()
     {
         imageVisible = false;
         imageUI.gameObject.SetActive(imageVisible);
+
+        // Guardar el tamaño original de la imagen
+        Image imageComponent = imageUI.GetComponent<Image>();
+        if (imageComponent != null && imageComponent.sprite != null)
+        {
+            originalImageSize = new Vector2(imageComponent.sprite.texture.width, imageComponent.sprite.texture.height);
+        }
+        else
+        {
+            Debug.LogError("El RectTransform no tiene un componente Image o no tiene una sprite asignada.");
+        }
 
         // Ajustar tamaño y centrar la imagen
         CenterImage();
@@ -22,7 +36,10 @@ public class ImageToggle : Interactable
 
     private void CenterImage()
     {
-        imageUI.sizeDelta = imageSize;
+        if (originalImageSize != Vector2.zero)
+        {
+            imageUI.sizeDelta = originalImageSize * scale;
+        }
         imageUI.anchorMin = new Vector2(0.5f, 0.5f);
         imageUI.anchorMax = new Vector2(0.5f, 0.5f);
         imageUI.pivot = new Vector2(0.5f, 0.5f);
@@ -33,5 +50,24 @@ public class ImageToggle : Interactable
     {
         imageVisible = !imageVisible;
         imageUI.gameObject.SetActive(imageVisible);
+
+        if (imageVisible)
+        {
+            // Guardar el timeScale actual y congelar el tiempo
+            previousTimeScale = Time.timeScale;
+            Time.timeScale = 0f;
+        }
+        else
+        {
+            // Restaurar el timeScale anterior
+            Time.timeScale = previousTimeScale;
+        }
+    }
+
+    // Método para cambiar la escala de la imagen en tiempo de ejecución
+    public void SetScale(float newScale)
+    {
+        scale = newScale;
+        CenterImage(); // Actualizar el tamaño de la imagen
     }
 }

@@ -7,7 +7,10 @@ public class DisappearOnInteract : Interactable
     private GameObject targetObject; // El objeto que desaparecerá
     [SerializeField]
     private float animationDuration = 1.0f; // Duración de la animación de color
+    [SerializeField]
+    private AudioClip soundClip; // El clip de audio que se reproducirá
 
+    private AudioSource audioSource;
     private Renderer targetRenderer;
 
     void Start()
@@ -18,6 +21,22 @@ public class DisappearOnInteract : Interactable
             if (targetRenderer == null)
             {
                 Debug.LogError("El objeto objetivo no tiene un componente Renderer.");
+            }
+
+            // Buscar un AudioSource existente o agregar uno nuevo
+            audioSource = GetComponent<AudioSource>();
+            if (audioSource == null)
+            {
+                audioSource = gameObject.AddComponent<AudioSource>();
+            }
+
+            if (soundClip == null)
+            {
+                Debug.LogError("No se ha asignado ningún clip de audio.");
+            }
+            else
+            {
+                audioSource.clip = soundClip;
             }
         }
         else
@@ -47,6 +66,12 @@ public class DisappearOnInteract : Interactable
             Color targetColor = Color.red;
             float elapsedTime = 0.0f;
 
+            // Reproducir el sonido
+            if (audioSource != null && soundClip != null)
+            {
+                audioSource.Play();
+            }
+
             // Animación de cambio de color
             while (elapsedTime < animationDuration)
             {
@@ -54,7 +79,7 @@ public class DisappearOnInteract : Interactable
                 elapsedTime += Time.deltaTime;
                 yield return null;
             }
-
+            
             // Asegurarse de que el color final sea exactamente rojo
             targetRenderer.material.color = targetColor;
 
