@@ -27,7 +27,7 @@ public class EscenaTransicion : MonoBehaviour
 
        yield return new WaitForSeconds(animacionFInal.length);
 
-       SceneManager.LoadScene(1); 
+       SceneManager.LoadScene(2); 
     }
 
 }
