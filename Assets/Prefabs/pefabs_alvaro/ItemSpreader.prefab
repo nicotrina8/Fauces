@@ -45,8 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemToSpread: {fileID: 4903823916982530855, guid: d1ceb9d2899baf341852e543e2da796f, type: 3}
-  numItemsToSpawn: 10
+  numItemsToSpawn: 20
   dungeonGenerator: {fileID: 0}
-  itemXSpread: 10
+  itemXSpread: 20
   itemYSpread: 0
-  itemZSpread: 10
+  itemZSpread: 20

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.058326125, g: 0.052698806, b: 0.04585483, a: 1}
+  m_IndirectSpecularColor: {r: 0.040662624, g: 0.03618666, b: 0.031167282, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 503901128}
   - component: {fileID: 503901127}
   - component: {fileID: 503901129}
+  - component: {fileID: 503901130}
   m_Layer: 0
   m_Name: DungeonGenerator
   m_TagString: Untagged
@@ -478,7 +479,6 @@ MonoBehaviour:
   floorParent: {fileID: 1645024384}
   wallParent: {fileID: 801017782}
   Player: {fileID: 1850744388}
-  Enemy: {fileID: 0}
   isRoofNeeded: 1
   mazeSize: 30
 --- !u!4 &503901128
@@ -510,6 +510,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   torchPrefab: {fileID: 5226429702013621152, guid: 30bb55d273929764787027d1f5d9f74b, type: 3}
   wallParent: {fileID: 801017783}
+--- !u!114 &503901130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 503901126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bfe1923362fd2b48a6dd64cbe7ae867, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skeletonPrefab: {fileID: 5961946456785917704, guid: 6016770bbcadb5c4493456146d08520e, type: 3}
+  floorParent: {fileID: 1645024385}
 --- !u!1 &541531107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1393,7 +1407,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: d3672685e64a4cb4f88b42e162da0902, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.159
+  m_Volume: 0.453
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2106,7 +2120,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 670a61a8523a8f841b29b598818b375f, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.545
   m_Pitch: 1
   Loop: 0
   Mute: 0
